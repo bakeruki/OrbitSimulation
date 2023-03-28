@@ -35,12 +35,12 @@ public class CelestialBody : MonoBehaviour
                 acceleration += CalculateAcceleration(allBodies[i]);
             }
         }
-        velocity += acceleration * timeScale;
+        velocity += acceleration * timeScale * Time.deltaTime;
     }
 
     public void UpdatePosition(float timeScale)
     {
-        rb.position += velocity * timeScale;
+        rb.position += velocity * timeScale * Time.deltaTime;
     }
 
     Vector3 CalculateAcceleration(CelestialBody otherBody)

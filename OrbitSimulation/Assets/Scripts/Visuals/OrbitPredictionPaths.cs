@@ -11,10 +11,12 @@ public class OrbitPredictionPaths : MonoBehaviour
     public int iterations;
 
     public Vector3[][] drawPoints;
+    public bool useRelativeBody;
+    public CelestialBody relativeBody;
 
-    void OnValidate()
+    void OnRenderObject()
     {
-        if (drawOrbitLines)
+        if (drawOrbitLines && !Application.isPlaying)
         {
             DrawOrbitLines();
         }
@@ -22,16 +24,24 @@ public class OrbitPredictionPaths : MonoBehaviour
 
     void DrawOrbitLines()
     {
+        Vector3 relativeBodyInitialPosition = Vector3.zero;
         CelestialBody[] realBodies = FindObjectsOfType<CelestialBody>();
         SimulatedBody[] simBodies = new SimulatedBody[realBodies.Length];
         drawPoints = new Vector3[simBodies.Length][];
         simulation = FindObjectOfType<UniverseSimulation>();
+        int relativeBodyIndex = 0;
 
         //create the simulated bodies
         for (int i = 0; i <  realBodies.Length; i++)
         {
             drawPoints[i] = new Vector3[iterations];
             simBodies[i] = new SimulatedBody(realBodies[i].mass, realBodies[i].velocity, realBodies[i].transform.position);
+
+            if (realBodies[i] == relativeBody && useRelativeBody)
+            {
+                relativeBodyIndex = i;
+                relativeBodyInitialPosition = simBodies[relativeBodyIndex].position;
+            }
         }
 
         //simulate the paths of each body
@@ -49,10 +59,24 @@ public class OrbitPredictionPaths : MonoBehaviour
 
             for(int k = 0; k < simBodies.Length; k++)
             {
+                Vector3 relativeBodyPosition = simBodies[relativeBodyIndex].position;
                 //calculate each bodies new position
-                UpdatePositionOfBody(simBodies[k]);
+                Vector3 newPosition = simBodies[k].position + simBodies[k].velocity * simulation.timeScale;
+                simBodies[k].position = newPosition;
+
+                if (useRelativeBody)
+                {
+                    Vector3 relativeBodyOffset = relativeBodyPosition - relativeBodyInitialPosition;
+                    newPosition -= relativeBodyOffset;
+                }
+               
+                if (k == relativeBodyIndex && useRelativeBody)
+                {
+                    newPosition = relativeBodyInitialPosition;
+                }
+
                 //add the new position of each body to the array of points 
-                drawPoints[k][i] = simBodies[k].position;
+                drawPoints[k][i] = newPosition;
             }
         }
 
@@ -62,13 +86,9 @@ public class OrbitPredictionPaths : MonoBehaviour
             Color color = realBodies[i].GetComponent<MeshRenderer>().sharedMaterial.color; 
             for(int j = 0; j < drawPoints[i].Length - 1; j++)
             {
-                Debug.DrawLine(drawPoints[i][j], drawPoints[i][j + 1], color, 2f);
+                Debug.DrawLine(drawPoints[i][j], drawPoints[i][j + 1], color);
             }
         }
-    }
-    void UpdatePositionOfBody(SimulatedBody body)
-    {
-        body.position += body.velocity * simulation.timeScale;
     }
     void UpdateVelocityOfBody(SimulatedBody body, Vector3 acceleration)
     {
