@@ -5,7 +5,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class CameraFollow : MonoBehaviour
 {
-    public GameObject focusBody;
+    public CelestialBody focusBody;
     public float zoom;
 
     float defaultY = 12178;

@@ -10,7 +10,7 @@ public class CelestialBody : MonoBehaviour
     public float surfaceGravity;
     public Vector3 initialVelocity;
 
-    public float gravitationalConstant;
+    float gravitationalConstant = UniverseSimulation.GravitationalConstant;
 
     public Vector3 velocity;
     public Vector3 acceleration;

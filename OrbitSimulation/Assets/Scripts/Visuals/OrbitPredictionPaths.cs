@@ -5,7 +5,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class OrbitPredictionPaths : MonoBehaviour
 {
-    public float gravitationalConstant;
+    float gravitationalConstant = UniverseSimulation.GravitationalConstant;
     UniverseSimulation simulation;
     public bool drawOrbitLines = false;
     public int iterations;
@@ -64,12 +64,16 @@ public class OrbitPredictionPaths : MonoBehaviour
                 Vector3 newPosition = simBodies[k].position + simBodies[k].velocity * simulation.timeScale;
                 simBodies[k].position = newPosition;
 
+                //if a rleative body is being used
                 if (useRelativeBody)
                 {
+                    //calculate how much the relative body has moved
                     Vector3 relativeBodyOffset = relativeBodyPosition - relativeBodyInitialPosition;
+                    //subtract the movement of the relative body from the draw point
                     newPosition -= relativeBodyOffset;
                 }
                
+                //keep the relative body at the center (its initial position)
                 if (k == relativeBodyIndex && useRelativeBody)
                 {
                     newPosition = relativeBodyInitialPosition;

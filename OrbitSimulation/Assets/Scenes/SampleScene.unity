@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -258,7 +258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 105ebdc7a95caaf4aa37470ecaf0392c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravitationalConstant: 66.7
   drawOrbitLines: 1
   iterations: 6306
   useRelativeBody: 1
@@ -356,11 +355,6 @@ Material:
     - _Color: {r: 0.8867924, g: 0.5731189, b: 0.33045566, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
---- !u!1 &200743160 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2802946897863712787, guid: 4c0228a5c353abd4eb60bbd25c9f0fcd, type: 3}
-  m_PrefabInstance: {fileID: 2802946897630913109}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &383894087 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2802946897863712786, guid: 4c0228a5c353abd4eb60bbd25c9f0fcd, type: 3}
@@ -680,7 +674,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -90.1937, y: 24356, z: 2536.318}
+  m_LocalPosition: {x: 967.4163, y: 24356, z: 13835}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -699,7 +693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038718d0d54aadc43a612c49365b8baf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focusBody: {fileID: 200743160}
+  focusBody: {fileID: 2124051233}
   zoom: 0.5
 --- !u!1 &1472179142
 GameObject:
@@ -795,6 +789,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1680851550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1680851552}
+  - component: {fileID: 1680851551}
+  m_Layer: 0
+  m_Name: OrbitTrailPathDrawer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1680851551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680851550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577dd52f3ef912d43b5d1317444f3d91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawTrails: 1
+  useRelativeBody: 0
+  numPoints: 1000
+--- !u!4 &1680851552
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680851550}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7877.8955, y: -2665.428, z: 1529.6118}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1711591332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -972,6 +1013,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5442169778730691672, guid: 2f12c3b3b55c80f4c82a519756fce52f, type: 3}
   m_PrefabInstance: {fileID: 5442169776942194502}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2124051233 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5442169778730691687, guid: 2f12c3b3b55c80f4c82a519756fce52f, type: 3}
+  m_PrefabInstance: {fileID: 5442169776942194502}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221cfcc75f8c72c459e43925ab7948bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2802946897630913109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1058,7 +1110,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2802946897863712799, guid: 4c0228a5c353abd4eb60bbd25c9f0fcd, type: 3}
   m_PrefabInstance: {fileID: 2802946897630913109}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 200743160}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 221cfcc75f8c72c459e43925ab7948bf, type: 3}

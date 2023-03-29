@@ -6,6 +6,7 @@ public class UniverseSimulation : MonoBehaviour
 {
     CelestialBody[] bodies;
     public float timeScale = 0.05f;
+    public static float GravitationalConstant = 66.7f;
 
     void Awake()
     {
