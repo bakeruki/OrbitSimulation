@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class UniverseSimulation : MonoBehaviour
 {
-    CelestialBody[] bodies;
-    public float timeScale = 0.05f;
     public static float GravitationalConstant = 66.7f;
+    public float timeScale = 1f;
 
-    void Awake()
+    CelestialBody[] bodies;
+
+    void Start()
     {
         bodies = FindObjectsOfType<CelestialBody>();
     }
-
 
     void Update()
     {

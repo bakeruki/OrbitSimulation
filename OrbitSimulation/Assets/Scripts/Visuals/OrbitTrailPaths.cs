@@ -42,43 +42,31 @@ public class OrbitTrailPaths : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateTrails();
+
         if (drawTrails)
         {
             DrawTrails();
         }   
     }
-
-    void DrawTrails()
+    void UpdateTrails()
     {
-        //loop through each planet
-        for(int i = 0; i < bodies.Length; i++)
+        //loop through all planets
+        for (int i = 0; i < bodies.Length; i++)
         {
             //loop through all of the current draw points
-            for(int j = drawPoints[i].Length - 1; j > 0; j--)
+            for (int j = drawPoints[i].Length - 1; j > 0; j--)
             {
                 //make room for the new point while keeping the old ones
                 drawPoints[i][j] = drawPoints[i][j - 1];
             }
 
             //add the new point
-            Vector3 newPoint = bodies[i].transform.position;
-           
-            /*
-             * THIS CODE IS BROKEN
-            if (useRelativeBody)
-            {
-                //calculate how much the relative body has moved
-                Vector3 relativeBodyOffset = relativeBodyInitialPosition;
-                newPoint -= relativeBodyOffset;
-            }
-            if(i == relativeBodyIndex && useRelativeBody)
-            {
-                newPoint = relativeBodyInitialPosition;
-            }
-            */
-            drawPoints[i][0] = newPoint;
+            drawPoints[i][0] = bodies[i].transform.position;
         }
-
+    }
+    void DrawTrails()
+    {
         //draw the actual points
         for(int i = 0; i < bodies.Length; i++)
         {

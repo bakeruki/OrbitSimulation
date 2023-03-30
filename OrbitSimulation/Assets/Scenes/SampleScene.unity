@@ -774,7 +774,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -90.1937, y: 24356, z: 2536.318}
+  m_LocalPosition: {x: 967.4163, y: 24356, z: 13835}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -793,7 +793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038718d0d54aadc43a612c49365b8baf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focusBody: {fileID: 2802946897630913110}
+  focusBody: {fileID: 2124051232}
   zoom: 0.5
 --- !u!1 &1472179142
 GameObject:
@@ -924,8 +924,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawTrails: 1
-  useRelativeBody: 0
-  numPoints: 6451
+  useRelativeBody: 1
+  numPoints: 5000
 --- !u!4 &1680851552
 Transform:
   m_ObjectHideFlags: 0
@@ -1120,6 +1120,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5442169778730691672, guid: 2f12c3b3b55c80f4c82a519756fce52f, type: 3}
   m_PrefabInstance: {fileID: 5442169776942194502}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2124051232 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5442169778730691687, guid: 2f12c3b3b55c80f4c82a519756fce52f, type: 3}
+  m_PrefabInstance: {fileID: 5442169776942194502}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221cfcc75f8c72c459e43925ab7948bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2802946897630913109
 PrefabInstance:
   m_ObjectHideFlags: 0
