@@ -5,6 +5,7 @@ using UnityEngine;
 public class UniverseSimulation : MonoBehaviour
 {
     public static float GravitationalConstant = 66.7f;
+    public static CelestialBody CentralBody;
     public float timeScale = 1f;
 
     CelestialBody[] bodies;
@@ -12,6 +13,7 @@ public class UniverseSimulation : MonoBehaviour
     void Start()
     {
         bodies = FindObjectsOfType<CelestialBody>();
+        CentralBody = GameObject.FindGameObjectWithTag("CentralBody").GetComponent<CelestialBody>();
     }
 
     void Update()

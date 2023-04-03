@@ -34,6 +34,10 @@ public class CelestialBody : MonoBehaviour
             {
                 acceleration += CalculateAcceleration(allBodies[i]);
             }
+            if (allBodies[i] == UniverseSimulation.CentralBody)
+            {
+                Debug.Log("Orbital period of " + this.name + " around " + allBodies[i].name + " in minutes: " + CalculateOrbitalPeriod(allBodies[i]) / 60);
+            }
         }
         velocity += acceleration * timeScale * Time.deltaTime;
     }
@@ -52,5 +56,22 @@ public class CelestialBody : MonoBehaviour
         Vector3 acceleration = direction * gravitationalConstant * otherBody.mass / distanceSquared;
 
         return acceleration;
+    }
+
+    //returns orbital period of this body around other body in seconds (assumes circular orbit)
+    float CalculateOrbitalPeriod(CelestialBody otherBody)
+    {
+        Rigidbody rbOther = otherBody.rb;
+        //calculate distance between the two bodies
+        float distance = (rbOther.position - rb.position).magnitude;
+
+        //4 pi squared times distance between both planets cubed 
+        float numerator = 4 * Mathf.Pow(Mathf.PI, 2) * Mathf.Pow(distance, 3);
+        //gravitational constant times other bodies mass
+        float denominator = gravitationalConstant * otherBody.mass;
+        //divide
+        float periodSquared = numerator / denominator;
+        //square root and return
+        return Mathf.Sqrt(periodSquared);
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1185,6 +1185,10 @@ PrefabInstance:
     - target: {fileID: 2802946897863712787, guid: 4c0228a5c353abd4eb60bbd25c9f0fcd, type: 3}
       propertyPath: m_Name
       value: Star
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802946897863712787, guid: 4c0228a5c353abd4eb60bbd25c9f0fcd, type: 3}
+      propertyPath: m_TagString
+      value: CentralBody
       objectReference: {fileID: 0}
     - target: {fileID: 2802946897863712787, guid: 4c0228a5c353abd4eb60bbd25c9f0fcd, type: 3}
       propertyPath: m_StaticEditorFlags
