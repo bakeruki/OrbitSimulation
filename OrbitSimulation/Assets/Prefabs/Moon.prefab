@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7185347546206621112}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 6208}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 106.96, y: 106.96, z: 106.96}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -115,6 +115,9 @@ MonoBehaviour:
   mass: 734.1094
   surfaceGravity: 4.28
   initialVelocity: {x: 182.69, y: 0, z: 0}
+  startPos: {x: 0, y: 0, z: 0}
+  useScale: 1
+  scalePower: 6
   velocity: {x: 182.69, y: 0, z: 0}
   acceleration: {x: 0, y: 0, z: 0}
   rb: {fileID: 7185347546206621109}

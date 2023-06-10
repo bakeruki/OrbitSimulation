@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UniverseSimulation : MonoBehaviour
 {
+    //real constant: 0.0000000000667f
     public static float GravitationalConstant = 66.7f;
     public static CelestialBody CentralBody;
     public float timeScale = 1f;

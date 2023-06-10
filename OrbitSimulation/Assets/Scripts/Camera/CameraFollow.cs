@@ -8,7 +8,7 @@ public class CameraFollow : MonoBehaviour
     public CelestialBody focusBody;
     public float zoom;
 
-    float defaultY = 12178;
+    float defaultY = 20000;
     
     void Update()
     {
