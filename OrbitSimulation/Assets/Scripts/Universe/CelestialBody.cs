@@ -94,7 +94,11 @@ public class CelestialBody : MonoBehaviour
         Rigidbody rbOther = otherBody.rb;
         //calculate distance between the two bodies
         float distance = (rbOther.position - rb.position).magnitude;
-        distance *= scale;
+
+        if (useScale)
+        {
+            distance *= scale;
+        }
 
         //4 pi squared times distance between both planets cubed 
         float numerator = 4 * Mathf.Pow(Mathf.PI, 2) * Mathf.Pow(distance, 3);
